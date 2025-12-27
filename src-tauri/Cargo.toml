@@ -1,0 +1,12 @@
+[package]
+name = "my-tauri-app"
+version = "0.1.0"
+authors = ["Developer <dev@example.com>"]
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+tauri = { version = "1.3", features = ["api-all"] }
+
+[build-dependencies]
+tauri-build = { version = "1.3", features = [] }

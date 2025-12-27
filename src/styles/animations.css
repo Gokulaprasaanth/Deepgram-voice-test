@@ -1,0 +1,279 @@
+/* Keyframe Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes recording-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes wave {
+  0%, 100% { height: 20px; }
+  50% { height: 40px; }
+}
+
+/* Recorder Container */
+.recorder-container {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Error Banner */
+.error-banner {
+  background: linear-gradient(90deg, rgba(255,230,240,0.08), rgba(255,200,230,0.04));
+  color: #ff6eaa;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 8px 40px rgba(124,58,237,0.07);
+  border: 1px solid rgba(255,110,170,0.12);
+}
+
+.error-icon {
+  font-size: 1.25rem;
+}
+
+.error-close {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #c00;
+  padding: 0 0.25rem;
+  line-height: 1;
+}
+
+.error-close:hover {
+  opacity: 0.7;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* Record Button */
+.record-button {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, rgba(255,110,167,0.12), rgba(124,58,237,0.12));
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 48px rgba(109,40,217,0.18), inset 0 -6px 24px rgba(255,110,167,0.03);
+  transition: all 0.3s ease;
+  position: relative;
+  backdrop-filter: blur(6px);
+}
+
+.record-button:hover {
+  transform: translateY(-2px);
+}
+
+.record-button:active {
+  transform: translateY(0);
+}
+
+.record-button:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 4px;
+}
+
+.record-button.recording {
+  background: radial-gradient(circle at 30% 30%, #ff87c7 0%, #7c3aed 45%, #6d28d9 100%);
+  box-shadow: 0 16px 80px rgba(124,58,237,0.28), 0 6px 30px rgba(255,110,167,0.12);
+  animation: recording-pulse 1.8s ease-in-out infinite;
+  transform: translateY(-2px);
+}
+
+.record-button-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mic-icon {
+  font-size: 3.2rem;
+  filter: drop-shadow(0 6px 18px rgba(124,58,237,0.28));
+}
+
+/* Status Text */
+.status-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.95);
+}
+
+.status-listening {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-idle {
+  opacity: 0.9;
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ff6ec7, #ec4899);
+  display: inline-block;
+  animation: pulse 1.6s ease-in-out infinite;
+  box-shadow: 0 6px 20px rgba(236,72,153,0.18);
+}
+
+/* Waveform */
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+}
+
+.wave-bar {
+  width: 4px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,210,240,0.6));
+  border-radius: 2px;
+  animation: wave 0.9s ease-in-out infinite;
+}
+
+/* Transcript Container */
+.transcript-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* Live Card */
+.live-card {
+  background: linear-gradient(180deg, rgba(10,8,20,0.28), rgba(124,58,237,0.06));
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: all 0.25s ease;
+  color: #fff;
+  box-shadow: 0 18px 60px rgba(109,40,217,0.06);
+}
+
+/* Final Card */
+.final-card {
+  background: linear-gradient(180deg, rgba(6,6,12,0.42), rgba(18,8,30,0.24));
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 30px 80px rgba(16,6,40,0.45), inset 0 -6px 40px rgba(255,110,167,0.02);
+  min-height: 150px;
+  border: 1px solid rgba(255,255,255,0.04);
+  backdrop-filter: blur(14px) saturate(1.05);
+  -webkit-backdrop-filter: blur(14px) saturate(1.05);
+  color: #f3efff;
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: rgba(255,255,255,0.72);
+}
+
+.live-card .card-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.final-card .card-label {
+  color: rgba(255,255,255,0.66);
+}
+
+.live-badge {
+  color: #ff6ec7;
+  font-size: 1.25rem;
+  animation: pulse 1.6s ease-in-out infinite;
+  text-shadow: 0 6px 20px rgba(255,110,167,0.12);
+}
+
+/* Text Styles */
+.live-text {
+  font-size: 1.125rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.96);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.final-text {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #f8f6ff;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.empty-text {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.6);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Clear Button */
+.clear-button {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: opacity 0.2s;
+}
+
+.clear-button {
+  background: none;
+  border: none;
+  color: #ff8acb;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: opacity 0.16s;
+}
+.clear-button:hover {
+  opacity: 0.85;
+}
+
+.clear-button:focus-visible {
+  outline: 2px solid rgba(255,138,203,0.28);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
